@@ -1,3 +1,4 @@
+// --- Первый код выполнен полностью самостоятельно --- 
 using System;
 
 namespace lessons
@@ -6,14 +7,14 @@ namespace lessons
     {
         static void Main(string[] args)
         {
-            Console.WriteLine($"Hello! Enter Username");
+            Console.WriteLine("Hello! Enter Username");
             string yourName = Console.ReadLine();
             Console.WriteLine($"Welcome to the calculator '{yourName}'");
-            Console.WriteLine($"Enter 1th number");
+            Console.WriteLine("Enter 1th number");
             float number1 = Convert.ToSingle(Console.ReadLine());
-            Console.WriteLine($"Enter 2nd number");
+            Console.WriteLine("Enter 2nd number");
             float number2 = Convert.ToSingle(Console.ReadLine());
-            Console.WriteLine($"Select operation: (+)(-)(*)(/)(%)");
+            Console.WriteLine("Select operation: (+)(-)(*)(/)(%)");
             string kalk = Console.ReadLine();
 
             if (kalk == "+")
@@ -38,10 +39,93 @@ namespace lessons
             }
             else
             {
-                Console.WriteLine($"Invalid operation");
+                Console.WriteLine("Invalid operation");
             }
 
-            Console.WriteLine($"Completed");
+            Console.WriteLine("Completed");
+        }
+    }
+}
+
+// --- Второй код выполнен с помощью чата джпт ---
+using System;   
+namespace Home
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Hello! Enter Username");
+        string yourName = Console.ReadLine();
+        Console.WriteLine($"Welcome to the calculator '{yourName}'");
+
+        float number1, number2;
+        
+        Console.WriteLine("Enter 1st number");
+        while (!float.TryParse(Console.ReadLine(), out number1))
+        {
+            Console.WriteLine("Error, please enter the correct number.");
+        }
+        
+        Console.WriteLine("Enter 2nd number");
+        while (!float.TryParse(Console.ReadLine(), out number2))
+        {
+            Console.WriteLine("Error, please enter the correct number.");
+        }
+        
+        string kalk;
+        while (true)
+        {
+            Console.WriteLine("Select operation: (+)(-)(*)(/)(%)");
+            kalk = Console.ReadLine();
+
+            if (kalk == "+" || kalk == "-" || kalk == "*" || kalk == "/" || kalk == "%")
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid operation. Please try again.");
+            }
+        }
+
+        switch (kalk)
+        {
+            case "+":
+                Console.WriteLine($" = {number1 + number2}");
+                break;
+            case "-":
+                Console.WriteLine($" = {number1 - number2}");
+                break;
+            case "*":
+                Console.WriteLine($" =  {number1 * number2}");
+                break;
+            case "/":
+                if (number2 == 0)
+                {
+                    Console.WriteLine("Error, division by zero is not allowed."); 
+                }
+                else
+                {
+                    Console.WriteLine($" = {number1 / number2}");
+                }
+                break;
+            case "%":
+                if (number2 == 0)
+                {
+                    Console.WriteLine("Error, division by zero is not allowed.");
+                }
+                else
+                {
+                    Console.WriteLine($" = {number1 % number2}");
+                }
+                break;
+            default:
+                Console.WriteLine("Invalid operation");
+                break;
+        }
+
+        Console.WriteLine("Completed");
         }
     }
 }
