@@ -1,1 +1,47 @@
+using System;
 
+namespace lessons
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine($"Hello! Enter Username");
+            string yourName = Console.ReadLine();
+            Console.WriteLine($"Welcome to the calculator '{yourName}'");
+            Console.WriteLine($"Enter 1th number");
+            float number1 = Convert.ToSingle(Console.ReadLine());
+            Console.WriteLine($"Enter 2nd number");
+            float number2 = Convert.ToSingle(Console.ReadLine());
+            Console.WriteLine($"Select operation: (+)(-)(*)(/)(%)");
+            string kalk = Console.ReadLine();
+
+            if (kalk == "+")
+            {
+                Console.WriteLine($" = {number1 + number2}");
+            }
+            else if (kalk == "-")
+            {
+                Console.WriteLine($" = {number1 - number2}");
+            }
+            else if (kalk == "*")
+            {
+                Console.WriteLine($" = {number1 * number2}");
+            }
+            else if (kalk == "/")
+            {
+                Console.WriteLine($" = {number1 / number2}");
+            }
+            else if (kalk == "%")
+            {
+                Console.WriteLine($" = {number1 % number2}");
+            }
+            else
+            {
+                Console.WriteLine($"Invalid operation");
+            }
+
+            Console.WriteLine($"Completed");
+        }
+    }
+}
